@@ -1,2 +1,2 @@
 build:
-	clang *.cpp
+	clang *.c
