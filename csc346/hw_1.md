@@ -33,4 +33,26 @@ c. 00000000
 	- 1's complement: 11111111
 	- 2's complement: 100000000
 
-7. Convert decimal +54, -54, -25 and +25 to binary using enough digits to accomodate the numbers. Then perform the binary equivalent of (+54) + (+25), (+54)+(-25), (-54)+
+7. Convert decimal +54, -54, -25 and +25 to binary using enough digits to accomodate the numbers. Then perform the binary equivalent of (+54) + (+25), (+54)+(-25), (-54)+(+25), (-54)+(-25). Convert the answers back to decimal and verify that they are correct.
+- (Sign bits omitted)
+- +54 = 110110
+- -54 = 1010
+- +25 = 11001
+- -25 = 111
+- (+54) + (+25)
+	- = 1001111 = 79$_{10}$
+- (+54)+(-25)
+	- = 11101 = 29$_{10}$
+- (-54)+(+25)
+	- = 1100011 = -29$_{10}$
+- (-54)+(-25) = COME BACK TO THIS
+
+8. Convert decimal 256 and 325 to BCD codes, and perform their addition using BCD codes.
+- 256 = 0010 0101 0110
+- 325 = 0011 0010 0101
+- sum = 0101 1000 0001
+
+9. Convert the characters "8Ce3" to ASCII codes. Append an odd parity bit to *each letter* at the left.
+- 8 C e 3 = 1000011, 0011100, 0101110, 0011011
+- after parity bit = 11000011, 10011100, 10101110, 10011011
+
