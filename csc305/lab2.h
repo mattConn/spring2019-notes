@@ -20,9 +20,9 @@ struct Partition
 };
 
 // init job
-void init_job(struct Job *job, const int *jobNum, const int *size)
+void init_job(struct Job *job, const int jobNum, const int *size)
 {
-	sprintf(job->name, "J%d", *jobNum);
+	sprintf(job->name, "J%d", jobNum);
 	job->status = WAIT;
 	job->size = *size;
 }

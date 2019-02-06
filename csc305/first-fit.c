@@ -14,17 +14,28 @@ int main()
 	// set size of each partition
 	for(int i = 0; i < MAX_PARTS; i++)
 	{
-		init_job(&jobList[i], &i, &JOB_SIZES[i]);
+		init_job(&jobList[i], i+1, &JOB_SIZES[i]);
 		init_part(&memory[i], &PART_SIZES[i]);
 	}
 
-/*
 	// first fit algorithm for allocation
-	for()
+	for(int i = 0; i < MAX_PARTS; i++)
 	{
-		
+		// if fit is found
+		if(jobList[i].size <= memory[i].size)
+		{
+			jobList[i].status = RUN; // set job status
+			jobList[i].partNum = i+1; // record partition number
+			memory[i].job = jobList[i]; // store job
+			memory[i].size -= jobList[i].size; // calculate size now avaiable
+		}
 	}
-*/
+
+	// display result of allocation
+	for(int i = 0; i < MAX_PARTS; i++)
+	{
+		printf("Job: %s \t Status: %d\n", jobList[i].name, jobList[i].status);
+	}
 
 	return 0;
 }
