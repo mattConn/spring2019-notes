@@ -1,4 +1,7 @@
-# Homework 1
+# CSC 346
+## Homework 1
+### Matthew Connelly
+### 2/6/19
 
 1. What are the largest and smallest unsigned numbers that can be expressed with 10 bits? What are the largest and smallest signed numbers that can be expressed with 10 bits?
 
@@ -54,5 +57,17 @@ c. 00000000
 
 9. Convert the characters "8Ce3" to ASCII codes. Append an odd parity bit to *each letter* at the left.
 - 8 C e 3 = 1000011, 0011100, 0101110, 0011011
-- after parity bit = 11000011, 10011100, 10101110, 10011011
+- after odd parity bit = 0 1000011, 0 0011100, 1 0101110, 1 0011011
 
+10. The following is a string of ASCII characters whose bit patterns have been converted into hexadecimal for compactness: 4A EF 68 6E 20 C4 EF E5. Of the 8 bits in each pair of digits, the leftmost is a parity bit. The remaining bits are the ASCII code.
+	a. Convert to bit form and decode the ASCII
+		- 4A = 0100 1010 = J
+		- EF = 1101 1111 = o
+		- 68 = 0110 1000 = h
+		- 6E = 0110 1110 = n
+		- 20 = 0010 0000 = SP
+		- C4 = 1100 0100 = D
+		- EF = 1110 1111 = o
+		- E5 = 1110 0101 = e
+	b. Determine the parity used: odd or even
+		- odd
