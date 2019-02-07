@@ -1,7 +1,7 @@
 # CSC 346
 ## Homework 1
 ### Matthew Connelly
-### 2/6/19
+### 2/7/19
 
 1. What are the largest and smallest unsigned numbers that can be expressed with 10 bits? What are the largest and smallest signed numbers that can be expressed with 10 bits?
 
@@ -48,7 +48,7 @@ c. 00000000
 	- = 11101 = 29$_{10}$
 - (-54)+(+25)
 	- = 1100011 = -29$_{10}$
-- (-54)+(-25) = COME BACK TO THIS
+- (-54)+(-25) = 10110001
 
 8. Convert decimal 256 and 325 to BCD codes, and perform their addition using BCD codes.
 - 256 = 0010 0101 0110
