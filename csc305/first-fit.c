@@ -4,10 +4,10 @@
 int main()
 {
 	// job list
-	struct Job jobList[MAX_PARTS];
+	job jobList[MAX_PARTS];
 
 	// partitions 1 through 5
-	struct Partition memory[MAX_PARTS];
+	partition memory[MAX_PARTS];
 
 	// init jobs and partition:
 	// name jobs and define size of jobs in jobList and set their statuses,
@@ -26,15 +26,17 @@ int main()
 		{
 			jobList[i].status = RUN; // set job status
 			jobList[i].partNum = i+1; // record partition number
+
 			memory[i].job = jobList[i]; // store job
 			memory[i].size -= jobList[i].size; // calculate size now avaiable
 		}
 	}
 
 	// display result of allocation
+	printf("Job, Size, Status, Partition:\n\n");
 	for(int i = 0; i < MAX_PARTS; i++)
 	{
-		printf("Job: %s \t Status: %d\n", jobList[i].name, jobList[i].status);
+		printf("%s \t %d \t %d \t %d\n", jobList[i].name, jobList[i].size, jobList[i].status, jobList[i].partNum);
 	}
 
 	return 0;

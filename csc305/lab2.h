@@ -4,20 +4,20 @@
 enum Status {WAIT, RUN};
 
 // a job to be stored in memory
-struct Job
+typedef struct Job
 {
 	char name[8]; // job name
 	int size; // size of job
 	enum Status status; // run or wait status
 	int partNum; // partition number
-};
+} job;
 
 // a memory partition
-struct Partition
+typedef struct Partition
 {
 	struct Job job; // job
 	int size; // size of partition
-};
+} partition;
 
 // init job
 void init_job(struct Job *job, const int jobNum, const int *size)
