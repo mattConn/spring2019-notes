@@ -7,3 +7,6 @@ inheritance-tester : main.cpp point2d.cpp circle.cpp cylinder.cpp
 
 clean:
 	rm $(BIN)
+
+check:
+	./$(BIN)
