@@ -15,26 +15,22 @@ double distance(const Cylinder &c1, const Cylinder &c2);
 
 int main()
 {
-	Cylinder p1;
-	Cylinder p2(3,4,5,6);
-	Cylinder p3 = p2;
+	// points
+	Point2D p1(2,3);
+	Point2D p2(3,4);
+
+	// circles
+	Circle c1(2,3,4);
+	Circle c2(5,6,7);
+
+	// cylinders
+	Cylinder cy1(2,3,4,5);
+	Cylinder cy2(6,7,8,9);
 	
-	p1.print();
-	p2.print();
-
-	cout << p2.equal(p3) << endl;
-	cout << p1.distance() << endl;
-	cout << p1.distance(p2) << endl;
-
-	cout << "=========" << endl;
-
-	cout << distance(p1) << endl;
-	cout << distance(p1,p2) << endl;
-
-	cout << "=========" << endl;
-
-	cout << p2.area() << endl;
-	cout << p2.volume() << endl;
+	// three arrays of each obj
+	Point2D parray[] = { p1, p2 };
+	Circle carray[] = { c1, c2 };
+	Cylinder cyarray[] = { cy1, cy2 };
 
 	return 0;
 }
