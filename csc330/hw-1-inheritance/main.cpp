@@ -42,9 +42,13 @@ int main()
 	printf("Calling x and y getters:\n");
 	printf("x = %d, y = %d\n", p1.getx(), p1.gety());
 
+	cout << endl;
+
 	printf("Testing for equality between p1 and p2:\n");
 	printf("p1 == p2: ");
 	cout << p1.equal(p2) << endl;
+
+	cout << endl;
 
 	printf("Calling point2d print:\n");
 	p1.print();

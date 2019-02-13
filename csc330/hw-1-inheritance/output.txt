@@ -1,0 +1,60 @@
+// CSC 330
+// Matthew Connelly
+
+**** Testing point2d methods ****
+
+Calling x and y getters:
+x = 2, y = 3
+
+Testing for equality between p1 and p2:
+p1 == p2: 0
+
+Calling point2d print:
+(x, y) = (2, 3)
+
+**** Testing circle methods ****
+
+Calling radius getter:
+radius = 4.00
+
+Testing for equality between c1 and c2:
+c1 == c2: 0
+
+Testing area getting function:
+area = 50.27
+
+testing distance from origin function:
+distance from (0, 0)  = 3.61
+
+Testing distance from other circle function:
+distance from c2 (5, 6)  = 4.24
+
+Testing non-member Circle distance functions:
+	testing non-member distance from origin function:
+	distance from (0, 0)  = 3.61
+
+	testing non-member distance from other circle function:
+	distance from c1 (2, 3) to c2 (5, 6)  = 4.24
+
+Calling circle print:
+(x, y) = (2, 3)
+radius = 4.00
+
+**** Testing cylinder methods ****
+
+Calling height getter:
+height = 5.00
+
+Calling area getter:
+area = 226.19
+
+Calling volume getter:
+volume = 251.33
+
+Testing for equality between 2 cylinders:
+cy1 == cy2: 0
+
+Testing cylinder print:
+(x, y) = (2, 3)
+radius = 4.00
+height = 5.00
