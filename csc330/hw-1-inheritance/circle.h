@@ -23,6 +23,12 @@ public:
 	// return area
 	double area() const;
 
+	// return distance from origin to this circle
+	double distance();
+
+	// return distance from center of this circle to center of another
+	double distance(const Circle &rhs);
+
 	// print members
 	void print() const;
 };
