@@ -11,7 +11,7 @@ public:
 	Circle() : Point2D(0,0), radius(0) {};
 
 	// custom constructor
-	Circle(const int &xx, const int &yy, const double &rr = 0) : Point2D(xx,yy), radius(rr) {};
+	Circle(const int &xx, const int &yy, const double &rr) : Point2D(xx,yy), radius(rr) {};
 
 	// radius setter/getter
 	void setr(const double &rr){ radius = rr; };

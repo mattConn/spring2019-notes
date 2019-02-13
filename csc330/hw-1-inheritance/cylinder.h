@@ -6,7 +6,7 @@ class Cylinder : public Circle
 
 public:
 	Cylinder() : Circle(), height(0) {}; // default constructor
-	Cylinder(const double &h) : Circle(), height(h) {}; // custom constructor
+	Cylinder(const int &xx, const int &yy, const double &rr, const double &h) : Circle(xx, yy, rr), height(h) {}; // custom constructor
 
 	// setter and getter
 	void setheight(const double &h){ height = h; };
