@@ -13,12 +13,12 @@ public:
 	double getheight() const { return height; };
 
 	// get area, volume
-	double area();
-	double volume();
+	double area() const;
+	double volume() const;
 
 	// test for equality between 2 cylinders
 	bool equal(const Cylinder &rhs);
 
 	// print cylinder data
-	void print();
+	void print() const;
 };

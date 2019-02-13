@@ -1,13 +1,14 @@
 #include "cylinder.h"
 #include <cmath>
 
-// get area, volume
-double Cylinder::area()
+// get area
+double Cylinder::area() const
 {
 	return 2*M_PI*getr()*height + 2*M_PI*getr()*getr();
 }
 
-double Cylinder::volume()
+// get volume
+double Cylinder::volume() const
 {
 	return M_PI*getr()*getr()*height;
 }
@@ -22,7 +23,7 @@ bool Cylinder::equal(const Cylinder &rhs)
 }
 
 // print cylinder data 
-void Cylinder::print()
+void Cylinder::print() const
 {
 	Circle::print();
 	printf("height = %.2f\n", height);

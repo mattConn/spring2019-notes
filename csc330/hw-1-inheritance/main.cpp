@@ -4,7 +4,10 @@
 
 using namespace std;
 
+// distance from origin to center of circle
 double distance(const Cylinder &c);
+
+// distance from center of circle to center of other circle
 double distance(const Cylinder &c1, const Cylinder &c2);
 
 int main()
@@ -32,6 +35,8 @@ int main()
 
 	return 0;
 }
+
+// circle distance definitions
 
 double distance(const Cylinder &c)
 {

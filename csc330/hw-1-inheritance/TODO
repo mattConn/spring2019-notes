@@ -1,0 +1,22 @@
+point2d
+- int x X
+- int y X
+
+circle
+- area X
+- distance X
+- double radius X
+
+cylinder
+- area X
+- volume X
+- height double X
+
+all
+- def constructor X
+- custom constructor X
+- setters and getters X
+- equal() X
+- print X
+
+- non member distance X

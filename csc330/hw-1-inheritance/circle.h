@@ -24,10 +24,10 @@ public:
 	double area() const;
 
 	// return distance from origin to this circle
-	double distance();
+	double distance() const;
 
 	// return distance from center of this circle to center of another
-	double distance(const Circle &rhs);
+	double distance(const Circle &rhs) const;
 
 	// print members
 	void print() const;
