@@ -2,8 +2,6 @@
 #include <cstdio>
 #include <cmath>
 
-const double PI = 3.1415926;
-
 bool Circle::equal(const Circle &rhs) const
 {
 	if(radius == rhs.radius) return true;
@@ -13,7 +11,7 @@ bool Circle::equal(const Circle &rhs) const
 
 double Circle::area() const
 {
-	return PI * radius * radius;
+	return M_PI * radius * radius;
 }
 
 double Circle::distance()
