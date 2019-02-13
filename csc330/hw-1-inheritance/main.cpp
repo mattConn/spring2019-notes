@@ -9,10 +9,10 @@
 using namespace std;
 
 // distance from origin to center of circle
-double distance(const Cylinder &c);
+double distance(const Circle &c);
 
 // distance from center of circle to center of other circle
-double distance(const Cylinder &c1, const Cylinder &c2);
+double distance(const Circle &c1, const Circle &c2);
 
 int main()
 {
@@ -71,13 +71,24 @@ int main()
 
 	cout << endl;
 
-	printf("Testing distance from origin function:\n");
+	printf("testing distance from origin function:\n");
 	printf("distance from (0, 0)  = %.2f\n", c1.distance());
 
 	cout << endl;
 
 	printf("Testing distance from other circle function:\n");
 	printf("distance from c2 (%d, %d)  = %.2f\n", c2.getx(), c2.gety(), c1.distance(c2));
+
+	cout << endl;
+
+	printf("Testing non-member Circle distance functions:\n");
+	printf("\ttesting non-member distance from origin function:\n");
+	printf("\tdistance from (0, 0)  = %.2f\n", distance(c1));
+
+	cout << endl;
+
+	printf("\ttesting non-member distance from other circle function:\n");
+	printf("\tdistance from c1 (%d, %d) to c2 (%d, %d)  = %.2f\n", c1.getx(), c1.gety(), c2.getx(), c2.gety(), distance(c1, c2));
 
 	cout << endl;
 
@@ -127,7 +138,7 @@ int main()
 	*/
 
 	// ref. to existing object
-	Point2D *point_ref = dynamic_parray+1;
+	Point2D *point_ref = &p1;
 
 	/*
 	d. Three arrays of objects of the three classes
@@ -155,12 +166,12 @@ int main()
 
 // circle distance definitions
 
-double distance(const Cylinder &c)
+double distance(const Circle &c)
 {
     return sqrt( pow(c.getx(),2) + pow(c.gety(),2) );
 }
 
-double distance(const Cylinder &c1, const Cylinder &c2)
+double distance(const Circle &c1, const Circle &c2)
 {
     return sqrt( pow(c2.getx() - c1.getx(),2) + pow(c2.gety() - c1.gety(),2) );
 }
