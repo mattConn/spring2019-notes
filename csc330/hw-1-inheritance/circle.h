@@ -1,3 +1,6 @@
+// CSC 330
+// Matthew Connelly
+
 #include "point2d.h"
 
 class Circle : public Point2D

@@ -1,3 +1,6 @@
+// CSC 330
+// Matthew Connelly
+
 #include <iostream>
 
 class Point2D

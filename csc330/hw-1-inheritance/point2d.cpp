@@ -1,3 +1,6 @@
+// CSC 330
+// Matthew Connelly
+
 #include <cstdio>
 #include "point2d.h"
 

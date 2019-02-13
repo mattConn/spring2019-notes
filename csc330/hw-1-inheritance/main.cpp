@@ -1,3 +1,6 @@
+// CSC 330
+// Matthew Connelly
+
 #include <iostream>
 #include <cmath>
 #include "cylinder.h"

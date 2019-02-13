@@ -1,3 +1,6 @@
+// CSC 330
+// Matthew Connelly
+
 #include "circle.h"
 #include <cstdio>
 #include <cmath>
