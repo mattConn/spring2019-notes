@@ -1,1 +1,0 @@
-This directory is being tracked by git, but contains labs that are NOT being tracked. STOP before deleting and save labs!
