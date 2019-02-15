@@ -1,0 +1,2 @@
+%2F%2F Cool Class Diagram, 
+[Point2D|x:int;y:int|setx(int);sety(int);getx():int;gety():int;equal(Point2D):bool;print()]<>-[Circle|radius:double|setr(double);getr():double;equal(Circle):bool;area():double;distance():double;distance(Circle):double;print()],[Circle]<>-[Cylinder|height:double|setheight(double);getheight():double;area():double;volume():double;equal(Cylinder):bool;print()]
