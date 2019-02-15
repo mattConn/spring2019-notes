@@ -1,5 +1,6 @@
 // CSC 330
 // Matthew Connelly
+// point2d.h
 
 #include <iostream>
 
