@@ -1,43 +1,36 @@
 #include <stdio.h>
-#include "lab2.h"
+#include <stdlib.h>
+#include "global.h"
 
 int main()
 {
-	// job list
-	job jobList[MAX_PARTS];
+	// get input string
+	const int INITIAL_STR_SIZE = 5;
+	char *input = (char *) malloc(INITIAL_STR_SIZE * sizeof(char));
+	char maxlen = INITIAL_STR_SIZE;
+	char buf; // hold temp. char of string
+	int i = 0; // str. char index
 
-	// partitions 1 through 5
-	partition memory[MAX_PARTS];
+	printf("Enter size of memory:\n");
 
-	// init jobs and partition:
-	// name jobs and define size of jobs in jobList and set their statuses,
-	// set size of each partition
-	for(int i = 0; i < MAX_PARTS; i++)
+	while((buf = fgetc(stdin)) != '\n') 
 	{
-		init_job(&jobList[i], i+1, &JOB_SIZES[i]);
-		init_part(&memory[i], &PART_SIZES[i]);
-	}
-
-	// first fit algorithm for allocation
-	for(int i = 0; i < MAX_PARTS; i++)
-	{
-		// if fit is found
-		if(jobList[i].size <= memory[i].size)
+		if(i == maxlen)
 		{
-			jobList[i].status = RUN; // set job status
-			jobList[i].partNum = i+1; // record partition number
-
-			memory[i].job = jobList[i]; // store job
-			memory[i].size -= jobList[i].size; // calculate size now avaiable
+			// double storage
+			maxlen *= 2;
+			realloc(input, maxlen * sizeof(char)); 
 		}
+
+		input[i] = buf;
+		i++;
 	}
 
-	// display result of allocation
-	printf("Job, Size, Status, Partition:\n\n");
-	for(int i = 0; i < MAX_PARTS; i++)
-	{
-		printf("%s \t %d \t %d \t %d\n", jobList[i].name, jobList[i].size, jobList[i].status, jobList[i].partNum);
-	}
+	memsize = atoi(input);
+
+	
+	
+	free(input);
 
 	return 0;
 }

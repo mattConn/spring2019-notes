@@ -1,0 +1,8 @@
+FF:
+- mem size
+- parts size
+- job list
+	- name, size, status, part num.
+
+Calculate initial mem allocation. Dispaly mem. waste and waiting jobs
+
