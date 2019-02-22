@@ -82,13 +82,18 @@ b.)
 4. Draw the logic diagram for the following Boolean expressions:
 (a) Y = AB + B’(A’ + C) (b) Y = (A + B’)(C’+ DE) 
 
-```
-```
+`<Pictured after the break.>`
+
+![circuit-a](hw_2-prob4-1.png)
+
+
+![circuit-b](hw_2-prob4-2.png)
+
+\newpage
+
 
 5. Obtain the truth table of the function F = (A+ C)(B’ + C) and express the function in
 sum of minterms and product of maxterms. 
-
-\pagebreak
 
 ```
 abc		a+c		b'+c	(a+c)(b'+c)
