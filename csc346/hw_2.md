@@ -17,6 +17,7 @@
 	110		0		1		1		1		1
 	111		1		1		1		1		1
 	```
+\newpage
 
 2. Simplify the following Boolean expressions to a minimum number of literals.
 (a) (a + b + c’)(a’b’ + c) (b) a’bc + abc’ + abc + a’bc’ (c) (a’ + c’)(a + b’ + c’)
@@ -59,6 +60,7 @@ AB’ + A’B’D + A’CD’
 = b'(a + a'd) + a'cd'		<I could not advance beyond this.>
 ```
 
+\newpage
 
 3. Find the complement of the following expression
 (a) (A’+B)C’ (b) (AB’ + C)D’ + E 
@@ -78,11 +80,10 @@ b.)
 = (ab' + c)' + de'
 = a'bc' + de'		<Ans>
 ```
+\newpage
 
 4. Draw the logic diagram for the following Boolean expressions:
 (a) Y = AB + B’(A’ + C) (b) Y = (A + B’)(C’+ DE) 
-
-`<Pictured after the break.>`
 
 ![circuit-a](hw_2-prob4-1.png)
 
@@ -112,6 +113,8 @@ $\sum \min = \sum(1,3,4,5,7)$
 
 $\Rightarrow (\sum \min)' = \Pi(0,2,6)$ \newline
 
+\newpage
+
 6. Express the following function in sum of minterms and product of maxterms: F(a, b, c, d) = (c’ + d)(b’ + c’) 
 
 ```
@@ -133,6 +136,8 @@ $= \sum(0,1,3,4,5,8,9,11,12,13)$
 
 $\Rightarrow (\sum\min)' = \Pi(2,6,7,10,14,15)$ \newline
 
+\newpage
+
 7. Convert the following to the other canonical form:
 (a) F(x, y, z) =$\sum$(0,2,3,6) (b) F(A, B, C, D) =$\Pi$(1,3,4,6,7,8,12,15)
 
@@ -144,7 +149,7 @@ $\Rightarrow \Pi(1,4,5,7)$
 
 $\Rightarrow \Pi(1,3,4,6,7,8,12,15)$
 
-\pagebreak
+\newpage
 
 8. Convert the following function into sum of products and product of sums. You need to
 simplify it first.
@@ -168,6 +173,8 @@ F = (BC + D)(C + AD’)
 $\sum(3,6,7,11,14,15)$
 
 $\Rightarrow (\sum\min)' = \Pi(0,1,2,4,5,8,9,10,12,13)$ \newline
+
+\newpage
 
 9. Use Boolean algebra to prove that the following Boolean equalities are true:
 (a) (a + b)’bc = 0
