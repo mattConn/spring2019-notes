@@ -147,7 +147,7 @@ $\Rightarrow \Pi(1,4,5,7)$
 
 `b.)`
 
-$\Rightarrow \Pi(1,3,4,6,7,8,12,15)$
+$\Rightarrow \sum(0,2,5,9,10,11,13,14)$
 
 \newpage
 
