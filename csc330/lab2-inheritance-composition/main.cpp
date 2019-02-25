@@ -1,10 +1,13 @@
 #include <iostream>
+#include "Circle.h"
+#include "Point.h"
 
 using namespace std;
 
 int main()
 {
-	cout << "Testing" << endl;
+	Point p;
+	Circle c;
 
 	return 0;
 }
