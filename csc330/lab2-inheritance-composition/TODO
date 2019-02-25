@@ -1,0 +1,32 @@
+Problem: Generate a C++ object-oriented project that models the
+following descriptions:
+• A circle “is a” shape.
+• A circle “has a” a point (x,y) and a radius.
+• A right triangle “is a” shape.
+• A right triangle “has” two sides, denoted as side1 and side2.
+• A shape, a circle, or a right triangle “has an” area.
+Requirements:
+1. The “is a” relationship is modeled by public inheritance.
+2. The “has a” relationship is modeled by composition.
+3. The project contains four classes, i.e., Shape, Point, Circle, and RTriangle.
+4. All classes must have a default constructor.
+5. Class Point, Circle, and RTriangle must have a constructor initializer, which takes as
+many parameter as needed to initialize the data members.
+6. Class Shape must have a private data member area of type double.
+7. All classes must have a public method called calculate_area().
+8. Class Point must have two private data members x and y, both of type int.
+9. Class Circle must have one private data member named center that is an object or a
+pointer to an object of class Point as well as a private data member named radius of
+type double.
+10. Class RTriangle must have two private data members side1 and side2, all of type
+double.
+11. Class Shape is the base class for Circle, and RTriangle.
+12. Class RTriangle has a member function hyp( ) with double return type which calculates its
+hypotenuse (hypotenuse2=side12 + side22)
+.
+13. Add additional methods to the above classes but not more private data members.
+14. The main ( driver) program must declare objects of class Point, Circle, and class
+RTriangle and use all member and non-member functions.
+15. Include two non-member functions distance from the origin to the circle center and
+between the centers of two circles.
+16. Design the respective UML diagram.
