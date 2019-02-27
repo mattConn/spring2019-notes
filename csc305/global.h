@@ -2,9 +2,6 @@
 
 enum state {WAIT, RUN};
 
-int memsize; // size of total memory
-int numparts; // number of partitions of memory
-
 // base class
 class base 
 {
@@ -28,7 +25,7 @@ class job: public base
 	
 public:
 	job() : base(), name(""), status(WAIT), partnum(0){};
-	job(const int &s, const std::string &n, const int &p) : base(s), name(n), status(WAIT), partnum(p){};
+	job(const int &s, const std::string &n, const int &p=0) : base(s), name(n), status(WAIT), partnum(p){};
 
 	std::string getName() const { return name; };
 	void setName(const std::string &n){ name = n; };
@@ -45,10 +42,18 @@ class part : public base
 {
 protected:
 	int size;
-	job j;
+	job *j;
 
 public:
-	part() : base(){};
-	part(const int &s) : base(s){};
-};
+	part() : base(), j(nullptr){};
+	part(const int &s) : base(s), j(nullptr){};
 
+	void setJob(job *J){ j = J; };
+	job getJob() const { return *j; };
+
+	~part()
+	{
+		delete j;
+		j = nullptr;
+	}
+};
