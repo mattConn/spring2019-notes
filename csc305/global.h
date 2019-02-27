@@ -21,27 +21,21 @@ class job: public base
 {
 	std::string name;
 	state status;
-	int partnum;
 	
 public:
-	job() : base(), name(""), status(WAIT), partnum(0){};
-	job(const int &s, const std::string &n, const int &p=0) : base(s), name(n), status(WAIT), partnum(p){};
+	job() : base(), name(""), status(WAIT){};
+	job(const int &sz, const std::string &nm) : base(sz), name(nm), status(WAIT){};
 
 	std::string getName() const { return name; };
 	void setName(const std::string &n){ name = n; };
 
 	state getStatus() const { return status; };
 	void setStatus(const state &s){ status = s; };
-
-	int getPartnum() const { return partnum; };
-	void setPartnum(const int &p) { partnum = p; };
 };
 
 // partition class
 class part : public base 
 {
-protected:
-	int size;
 	job *j;
 
 public:
@@ -49,11 +43,5 @@ public:
 	part(const int &s) : base(s), j(nullptr){};
 
 	void setJob(job *J){ j = J; };
-	job getJob() const { return *j; };
-
-	~part()
-	{
-		delete j;
-		j = nullptr;
-	}
+	job *getJob() const { return j; };
 };

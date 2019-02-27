@@ -1,5 +1,5 @@
 CC = clang++
-FLAGS = -std=c++11
+FLAGS = -std=c++11 -g
 
 # algorithm binaries
 FF_BIN = first-fit
