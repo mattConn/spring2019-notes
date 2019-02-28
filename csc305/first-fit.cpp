@@ -7,9 +7,10 @@ using namespace std;
 
 int main()
 {
-	int memsize; // size of total memory
+	int memsize=0; // size of total memory
 	int numparts; // number of partitions of memory
 	int numjobs; // number of jobs
+	int totalwaste; // total wasted mem.
 
 /*
 	// get mem. size
@@ -78,6 +79,9 @@ int main()
 	joblist.push_back(new job(400, "j2"));
 	joblist.push_back(new job(5000, "j3"));
 
+	// set memsize
+	for(auto p : partitions) memsize += p->getSize();
+
 	// Algorithm implementation
 	// ========================
 
@@ -87,9 +91,9 @@ int main()
 	{
 		for(auto p : partitions)
 		{
-			if(!p->getJob() && j->getSize() <= p->getSize())
+			if(!p->getJobPtr() && j->getSize() <= p->getSize())
 			{
-				p->setJob(j);
+				p->setJobPtr(j);
 
 				break;
 			}
@@ -97,19 +101,47 @@ int main()
 	}
 
 
+	// display algorithm results
+	//--------------------------
+
+	// memory info
+	cout << "Memory size: " << memsize << endl;
+	cout << "Num. of partitions: " << numparts << endl;
+	cout << endl;
+	
+	// display partition sizes
+	//------------------------
+	cout << "Partitions:\t" << endl;
+	for(int i=0; i<numparts; i++)
+	{
+		cout << "P"<<i+1<<"="<<partitions[i]->getSize() << "\t";
+	}
+	cout << "\n" << endl;
+
+	// display job sizes
+	//------------------
+	cout << "Jobs:\t" << endl;
+	for(auto j : joblist) cout << j->getName()<<"="<<j->getSize()<<"\t";
+	cout << "\n" << endl;
+
 	cout << "Part | Job/Waste" << endl;
 	for(int i=0; i<numparts; i++)
 	{
 		cout << "P" << i+1 << " | "; // partition number
 
-		if(partitions[i]->getJob()) // if job exists (non-null)
+		if(partitions[i]->getJobPtr()) // if job exists (non-null)
 		// print job/waste
-			cout << partitions[i]->getJob()->getName() << "/" << partitions[i]->getSize() - partitions[i]->getJob()->getSize() << endl;
+			cout << partitions[i]->getJobPtr()->getName() << "/" << partitions[i]->getSize() - partitions[i]->getJobPtr()->getSize() << endl;
 		else // no job, all waste
 			cout << "-/" << partitions[i]->getSize() << endl;
 
 	}
+	cout << endl;
 
+	// get total waste
+	for(auto p : partitions)
+		totalwaste += (p->getSize() - (p->getJobPtr() ? p->getJobPtr()->getSize() : 0));
+	cout << "Total waste: " << totalwaste << endl;
 
 
 	// end program, cleanup:

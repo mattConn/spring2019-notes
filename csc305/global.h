@@ -1,7 +1,5 @@
 #include <string>
 
-enum state {WAIT, RUN};
-
 // base class
 class base 
 {
@@ -20,17 +18,13 @@ public:
 class job: public base
 {
 	std::string name;
-	state status;
 	
 public:
-	job() : base(), name(""), status(WAIT){};
-	job(const int &sz, const std::string &nm) : base(sz), name(nm), status(WAIT){};
+	job() : base(), name(""){};
+	job(const int &size, const std::string &nm) : base(size), name(nm){};
 
 	std::string getName() const { return name; };
 	void setName(const std::string &n){ name = n; };
-
-	state getStatus() const { return status; };
-	void setStatus(const state &s){ status = s; };
 };
 
 // partition class
@@ -40,8 +34,8 @@ class part : public base
 
 public:
 	part() : base(), j(nullptr){};
-	part(const int &s) : base(s), j(nullptr){};
+	part(const int &size) : base(size), j(nullptr){};
 
-	void setJob(job *J){ j = J; };
-	job *getJob() const { return j; };
+	void setJobPtr(job *J){ j = J; };
+	job *getJobPtr() const { return j; };
 };
