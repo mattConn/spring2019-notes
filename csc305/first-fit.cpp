@@ -102,38 +102,33 @@ int main()
 
 
 	// display algorithm results
-	//--------------------------
+	//==========================
 
 	// memory info
-	cout << "Memory size: " << memsize << endl;
-	cout << "Num. of partitions: " << numparts << endl;
-	cout << endl;
+	printf("Memory size: %d\nNum. of partitions: %d\n\n", memsize, numparts);
 	
 	// display partition sizes
 	//------------------------
-	cout << "Partitions:\t" << endl;
-	for(int i=0; i<numparts; i++)
-	{
-		cout << "P"<<i+1<<"="<<partitions[i]->getSize() << "\t";
-	}
-	cout << "\n" << endl;
+	printf("Partitions:\n");
+	for(int i=0; i<numparts; i++) printf("P%d=%d\t", i+1, partitions[i]->getSize());
+	printf("\n\n");
 
 	// display job sizes
 	//------------------
-	cout << "Jobs:\t" << endl;
-	for(auto j : joblist) cout << j->getName()<<"="<<j->getSize()<<"\t";
-	cout << "\n" << endl;
+	printf("Jobs:\n");
+	for(auto j : joblist) printf("%s=%d\t", j->getName().c_str(), j->getSize());
+	printf("\n\n");
 
-	cout << "Part | Job/Waste" << endl;
+	printf("Part | Job/Waste\n");
 	for(int i=0; i<numparts; i++)
 	{
-		cout << "P" << i+1 << " | "; // partition number
+		printf("P%d | ", i+1);
 
 		if(partitions[i]->getJobPtr()) // if job exists (non-null)
 		// print job/waste
-			cout << partitions[i]->getJobPtr()->getName() << "/" << partitions[i]->getSize() - partitions[i]->getJobPtr()->getSize() << endl;
+			printf("%s/%d\n", partitions[i]->getJobPtr()->getName().c_str(), partitions[i]->getSize() - partitions[i]->getJobPtr()->getSize() );
 		else // no job, all waste
-			cout << "-/" << partitions[i]->getSize() << endl;
+			printf("-/%d\n", partitions[i]->getSize());
 
 	}
 	cout << endl;
@@ -141,7 +136,7 @@ int main()
 	// get total waste
 	for(auto p : partitions)
 		totalwaste += (p->getSize() - (p->getJobPtr() ? p->getJobPtr()->getSize() : 0));
-	cout << "Total waste: " << totalwaste << endl;
+	printf("Total waste: %d\n", totalwaste);
 
 
 	// end program, cleanup:
