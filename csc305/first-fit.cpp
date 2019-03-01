@@ -8,15 +8,11 @@ using namespace std;
 int main()
 {
 	int memsize=0; // size of total memory
-	int numparts; // number of partitions of memory
-	int numjobs; // number of jobs
-	int totalwaste; // total wasted mem.
+	int numparts=0; // number of partitions of memory
+	int numjobs=0; // number of jobs
 
-/*
-	// get mem. size
-	cout << "Enter size of memory: ";
-	cin >> memsize;
-
+	int totalwaste=0; // total wasted mem.
+	int numwaiting=0; // number of jobs waiting
 
 	// input buffers
 	int iinput;
@@ -55,29 +51,14 @@ int main()
 	vector<job *> joblist;
 	for(int i=0; i < numjobs; i++)
 	{
-		cout << "Enter size of job " << i+1 << ": ";
-		cin >> iinput;
-
 		cout << "Enter name of job " << i+1 << ": ";
 		cin >> sinput;
 
+		cout << "Enter size of job " << i+1 << ": ";
+		cin >> iinput;
+
 		joblist.push_back(new job(iinput, sinput));
 	}
-*/
-	// TEST
-
-	numparts = 2;
-	numjobs = 3;
-
-	vector<part *> partitions;
-	vector<job *> joblist;
-
-	partitions.push_back(new part(200));
-	partitions.push_back(new part(300));
-
-	joblist.push_back(new job(100, "j1"));
-	joblist.push_back(new job(400, "j2"));
-	joblist.push_back(new job(5000, "j3"));
 
 	// set memsize
 	for(auto p : partitions) memsize += p->getSize();
@@ -93,6 +74,7 @@ int main()
 		{
 			if(!p->getJobPtr() && j->getSize() <= p->getSize())
 			{
+				j->setStatus(RUN);
 				p->setJobPtr(j);
 
 				break;
@@ -105,7 +87,7 @@ int main()
 	//==========================
 
 	// memory info
-	printf("Memory size: %d\nNum. of partitions: %d\n\n", memsize, numparts);
+	printf("\nMemory size: %d\nNum. of partitions: %d\n\n", memsize, numparts);
 	
 	// display partition sizes
 	//------------------------
@@ -138,6 +120,11 @@ int main()
 		totalwaste += (p->getSize() - (p->getJobPtr() ? p->getJobPtr()->getSize() : 0));
 	printf("Total waste: %d\n", totalwaste);
 
+	// get waiting jobs
+	for(auto j : joblist)
+		if(j->getStatus() == WAIT) numwaiting++;
+
+	printf("Waiting jobs: %d\n",numwaiting);
 
 	// end program, cleanup:
 

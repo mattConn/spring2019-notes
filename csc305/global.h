@@ -1,6 +1,9 @@
 #include <string>
 
+enum state {WAIT, RUN};
+
 // base class
+// ==========
 class base 
 {
 protected:
@@ -15,9 +18,11 @@ public:
 };
 
 // job class
+// =========
 class job: public base
 {
 	std::string name;
+	state status = WAIT;
 	
 public:
 	job() : base(), name(""){};
@@ -25,9 +30,13 @@ public:
 
 	std::string getName() const { return name; };
 	void setName(const std::string &n){ name = n; };
+
+	state getStatus() const { return status; };
+	void setStatus(const state &s){ status = s; };
 };
 
 // partition class
+// ===============
 class part : public base 
 {
 	job *j;
