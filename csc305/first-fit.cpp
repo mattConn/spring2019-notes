@@ -15,8 +15,7 @@ int main()
 	int numwaiting=0; // number of jobs waiting
 
 	// input buffers
-	int iinput;
-	string sinput;
+	int input;
 
 	// construct partitions
 	// --------------------
@@ -35,8 +34,8 @@ int main()
 	for(int i=0; i < numparts; i++)
 	{
 		cout << "Enter size of partition " << i+1 << ": ";
-		cin >> iinput;
-		partitions.push_back(new part(iinput));
+		cin >> input;
+		partitions.push_back(new part(input));
 	}
 
 
@@ -51,13 +50,10 @@ int main()
 	vector<job *> joblist;
 	for(int i=0; i < numjobs; i++)
 	{
-		cout << "Enter name of job " << i+1 << ": ";
-		cin >> sinput;
-
 		cout << "Enter size of job " << i+1 << ": ";
-		cin >> iinput;
+		cin >> input;
 
-		joblist.push_back(new job(iinput, sinput));
+		joblist.push_back(new job(input, i+1));
 	}
 
 	// set memsize
@@ -98,7 +94,7 @@ int main()
 	// display job sizes
 	//------------------
 	printf("Jobs:\n");
-	for(auto j : joblist) printf("%s=%d\t", j->getName().c_str(), j->getSize());
+	for(auto j : joblist) printf("j%d=%d\t", j->getNum(), j->getSize());
 	printf("\n\n");
 
 	printf("Part | Job/Waste\n");
@@ -108,7 +104,7 @@ int main()
 
 		if(partitions[i]->getJobPtr()) // if job exists (non-null)
 		// print job/waste
-			printf("%s/%d\n", partitions[i]->getJobPtr()->getName().c_str(), partitions[i]->getSize() - partitions[i]->getJobPtr()->getSize() );
+			printf("j%d/%d\n", partitions[i]->getJobPtr()->getNum(), partitions[i]->getSize() - partitions[i]->getJobPtr()->getSize() );
 		else // no job, all waste
 			printf("-/%d\n", partitions[i]->getSize());
 

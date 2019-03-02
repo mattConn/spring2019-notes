@@ -21,15 +21,15 @@ public:
 // =========
 class job: public base
 {
-	std::string name;
+	int jobnum = 0;
 	state status = WAIT;
 	
 public:
-	job() : base(), name(""){};
-	job(const int &size, const std::string &nm) : base(size), name(nm){};
+	job() : base(), jobnum(0){};
+	job(const int &size, const int &n) : base(size), jobnum(n){};
 
-	std::string getName() const { return name; };
-	void setName(const std::string &n){ name = n; };
+	int getNum() const { return jobnum; };
+	void setName(const int &n){ jobnum = n; };
 
 	state getStatus() const { return status; };
 	void setStatus(const state &s){ status = s; };
