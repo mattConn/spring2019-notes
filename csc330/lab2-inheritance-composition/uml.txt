@@ -1,0 +1,17 @@
+shape X
+	gives:
+	double area
+	calculate area
+point X
+	int x, y
+circle : shape X
+	point center
+	double radius
+triangle : shape X
+	double side1, side2
+	double hyp()
+
+main:
+	declare point circle triangle
+	distance(circle)
+	distance(circle, circle)

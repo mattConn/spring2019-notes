@@ -1,9 +1,9 @@
 CC = clang++
-FLAGS = std=c++11
+FLAGS = -std=c++11
 BIN = lab2
 
-$(BIN) : main.cpp Shape.cpp
-	$(CC) $^ -o $@
+$(BIN) : main.cpp
+	$(CC) $(FLAGS) $^ -o $@
 
 check:
 	./$(BIN)

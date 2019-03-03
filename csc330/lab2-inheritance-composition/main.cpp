@@ -1,13 +1,16 @@
 #include <iostream>
-#include "Circle.h"
-#include "Point.h"
+#include "shape.h"
+#include "point.h"
+#include "circle.h"
+#include "triangle.h"
 
 using namespace std;
 
 int main()
 {
-	Point p;
-	Circle c;
+	point p;
+	circle c;
+	triangle t;
 
 	return 0;
 }
