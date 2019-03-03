@@ -12,6 +12,31 @@ int main()
 	// program setup
 	//==============
 
+	// choosing algorithm to implement
+	// -------------------------------
+	char algo;
+	char *algoopts = "fbwn"; // algo. options
+	int goodopt = 0; // if good option specified by user
+	printf("Choose which memory management algorithm to test:\n");
+	do
+	{
+		printf("f - first fit\tb - best fit\tw - worst fit\tn - next fit\n");
+
+		while((algo = fgetc(stdin)) != '\n')
+		{
+			for(int i=0; i<4; i++)
+			{
+				if(algoopts[i] == algo)
+				{
+					goodopt = 1;
+					break;
+				}	
+			}
+		}
+
+	}
+	while(!goodopt);
+
 	int memsize=0; // size of total memory
 	int numparts=0; // number of partitions of memory
 	int numjobs=0; // number of jobs
@@ -79,19 +104,25 @@ int main()
 	// Algorithm implementation
 	// ========================
 
-	// first-fit algorithm
-	//--------------------
-	for(int i=0; i < numjobs; i++)
+	switch(algo)
 	{
-		for(int j=0; j < numparts; j++)
-		{
-			if(partitions[j][JNUM] == 0 && joblist[i][JSIZE] <= partitions[j][PSIZE])
+		case 'f':
+			// first-fit algorithm
+			//--------------------
+			for(int i=0; i < numjobs; i++)
 			{
-				partitions[j][JNUM] = i+1;
-				joblist[i][JSTAT] = 1;
+				for(int j=0; j < numparts; j++)
+				{
+					if(partitions[j][JNUM] == 0 && joblist[i][JSIZE] <= partitions[j][PSIZE])
+					{
+						partitions[j][JNUM] = i+1;
+						joblist[i][JSTAT] = 1;
+					}
+				}
 			}
-		}
+		break;
 	}
+
 
 	printf("\n");
 
