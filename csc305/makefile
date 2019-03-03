@@ -1,11 +1,14 @@
-CC = clang++
-FLAGS = -std=c++11 -g
+CC = gcc
+FLAGS = 
 
 # algorithm binaries
-FF_BIN = first-fit
+BIN = mem-mgmt-algorithms
 
-$(FF_BIN): global.cpp first-fit.cpp
+$(BIN): main.c
 	$(CC) $(FLAGS) $^ -o $@
 
+check:
+	./$(BIN)
+
 clean:
-	rm $(FF_BIN)
+	rm $(BIN)

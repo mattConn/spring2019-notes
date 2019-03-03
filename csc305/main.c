@@ -22,6 +22,7 @@ int main()
 	// job array: size and status (0 wait, 1 run)
 	int joblist[MAX_JOBS][2];
 
+	// init
 	for(int i=0; i < MAX_JOBS; i++)
 	{
 		for(int j=0; j < 2; j++)
@@ -31,18 +32,12 @@ int main()
 	// partition array: size and job number
 	int partitions[MAX_PARTS][2];
 
+	// init
 	for(int i=0; i < MAX_PARTS; i++)
 	{
 		for(int j=0; j < 2; j++)
 			partitions[i][j] = 0;
 	}
-
-
-	int results[5]; 
-
-	// input buffer
-	int input;
-
 
 	// get partition count
 	do
@@ -51,7 +46,6 @@ int main()
 		scanf("%d", &numparts);	
 	}
 	while(numparts > MAX_PARTS || numparts < 1); // handle out of range
-
 
 	// get job count
 	do
@@ -62,7 +56,6 @@ int main()
 	while(numjobs > MAX_JOBS || numjobs < 1); // handle out of range
 
 	// get partition sizes and set memsize
-
 	printf("Partition setup\n===============\n");
 
 	for(int i=0; i < numparts; i++)
@@ -75,7 +68,6 @@ int main()
 	printf("\n");
 
 	// get job sizes
-
 	printf("Joblist setup\n=============\n");
 
 	for(int i=0; i < numjobs; i++)
@@ -93,7 +85,6 @@ int main()
 	{
 		for(int j=0; j < numparts; j++)
 		{
-			printf("%d:::\n", partitions[j][JNUM]);
 			if(partitions[j][JNUM] == 0 && joblist[i][JSIZE] <= partitions[j][PSIZE])
 			{
 				partitions[j][JNUM] = i+1;
@@ -114,25 +105,18 @@ int main()
 	// display partition sizes
 	//------------------------
 	printf("Partitions:\n");
-
-	for(int i=0; i<numparts; i++)
-		printf("P%d=%d\t", i+1, partitions[i][PSIZE]);
-
+	for(int i=0; i<numparts; i++) printf("P%d=%d\t", i+1, partitions[i][PSIZE]);
 	printf("\n\n");
 
 	// display job sizes
 	//------------------
 	printf("Jobs:\n");
-
-	for(int i=0; i<numjobs; i++)
-		printf("j%d=%d\t", i+1, joblist[i][JSIZE]);
-
+	for(int i=0; i<numjobs; i++) printf("j%d=%d\t", i+1, joblist[i][JSIZE]);
 	printf("\n\n");
 
 	// table of partitions, job and waste, total waste, total waiting jobs
 	//====================================================================
 	printf("Part | Job/Waste\n");
-
 	for(int i=0; i<numparts; i++)
 	{
 		int waste = partitions[i][PSIZE] - joblist[ partitions[i][JNUM]-1 ][JSIZE];
@@ -146,8 +130,7 @@ int main()
 	printf("Total waste: %d\n", totalwaste);
 
 	// get waiting jobs
-	for(int i=0; i<numjobs; i++)
-		if(joblist[i][JSTAT] == 0) numwaiting++;
+	for(int i=0; i<numjobs; i++) if(joblist[i][JSTAT] == 0) numwaiting++;
 
 	printf("Waiting jobs: %d\n",numwaiting);
 
