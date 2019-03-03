@@ -20,4 +20,6 @@ public:
 	}
 
 	double calculate_area() const {return PI * radius * radius;};
+
+	point getCenter() const {return center;}
 };
