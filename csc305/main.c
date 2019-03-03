@@ -14,28 +14,32 @@ int main()
 
 	// choosing algorithm to implement
 	// -------------------------------
-	char algo;
-	char *algoopts = "fbwn"; // algo. options
-	int goodopt = 0; // if good option specified by user
+	char algo = 0;
+	char buf;
+	char *algoopts = "fbwn"; // algo. options (fit: first, best, worst, next)
+
 	printf("Choose which memory management algorithm to test:\n");
 	do
 	{
 		printf("f - first fit\tb - best fit\tw - worst fit\tn - next fit\n");
 
-		while((algo = fgetc(stdin)) != '\n')
+		while((buf = fgetc(stdin)) != '\n')
 		{
 			for(int i=0; i<4; i++)
 			{
-				if(algoopts[i] == algo)
+				if(algoopts[i] == buf)
 				{
-					goodopt = 1;
+					algo = buf;
 					break;
 				}	
 			}
 		}
 
 	}
-	while(!goodopt);
+	while(!algo);
+
+	// memory, job and waste var. initialization
+	//------------------------------------------
 
 	int memsize=0; // size of total memory
 	int numparts=0; // number of partitions of memory
@@ -121,6 +125,10 @@ int main()
 				}
 			}
 		break;
+		
+		default:
+			printf("Could not find routine for algorithm specified by `%c`. Exiting.\n", algo);
+			return 1;
 	}
 
 
