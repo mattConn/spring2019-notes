@@ -1,0 +1,20 @@
+Program Results:
+================
+Memory size: 800
+Num. of partitions: 4
+
+Partitions:
+P1=200	P2=100	P3=100	P4=400	
+
+Jobs:
+j1=50	j2=200	j3=200	j4=300	
+
+Part | Job/Waste
+P1 | j1/150
+P2 | j0/100
+P3 | j0/100
+P4 | j2/200
+
+Total waste: 550
+Waiting jobs: 2
+

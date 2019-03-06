@@ -69,16 +69,20 @@ int main()
 	}
 
 #ifdef NOINTERACT
-	numparts = 2;
-	numjobs = 2;
+	numparts = 4;
+	numjobs = 4;
 
 	partitions[0][PSIZE] = 200;
 	partitions[1][PSIZE] = 100;
+	partitions[2][PSIZE] = 100;
+	partitions[3][PSIZE] = 400;
 
-	memsize = 300;
+	memsize = 800;
 
 	joblist[0][JSIZE] = 50;
-	joblist[1][JSIZE] = 75;
+	joblist[1][JSIZE] = 200;
+	joblist[2][JSIZE] = 200;
+	joblist[3][JSIZE] = 300;
 #else
 	// get partition count
 	do
@@ -120,6 +124,9 @@ int main()
 
 	// Algorithm implementation
 	// ========================
+
+	// for next fit algo
+	int lastfit = -1;
 
 	switch(algo)
 	{
@@ -171,6 +178,34 @@ int main()
 				{
 					partitions[bestpart][JNUM] = j+1; // set job number for partition
 					joblist[j][JSTAT] = 1; // set job status
+				}
+			}
+		break;
+
+		case 'n':
+			// next-fit algorithm
+			//--------------------
+			for(int j=0; j < numjobs; j++)
+			{
+				/* note: lastfit partition index declared before switch */
+
+				int n = 0; // iteration counter
+				int p = lastfit+1; // partition index
+				while(n < numparts)
+				{
+					if(p == numparts) p = 0; // reset for circular queue
+
+					// if partition is empty and job can fit in part.
+					if(partitions[p][JNUM] == 0 && joblist[j][JSIZE] <= partitions[p][PSIZE])
+					{
+						partitions[p][JNUM] = j+1; // set job number for partition
+						joblist[j][JSTAT] = 1; // set job status
+
+						lastfit=p;
+						break;
+					}
+					n++;
+					p++;
 				}
 			}
 		break;
