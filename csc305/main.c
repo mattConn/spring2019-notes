@@ -144,6 +144,35 @@ int main()
 		case 'b':
 			// best-fit algorithm
 			//--------------------
+			for(int j=0; j < numjobs; j++)
+			{
+				int diff = -1; // diff. bewteen partition size and job size
+				int smallestdiff = -1; // smallest diff. found
+				int bestpart = -1; // index of partition with smallest diff.
+
+				for(int p=0; p < numparts; p++)
+				{
+					// if partition is empty and job can fit in part.
+					if(partitions[p][JNUM] == 0 && joblist[j][JSIZE] <= partitions[p][PSIZE])
+					{
+						diff = partitions[p][PSIZE] - joblist[j][JSIZE];
+
+						// if smallestdiff is unitialized or diff is smaller than smallestdiff
+						if(smallestdiff < 0 || diff < smallestdiff)
+						{
+							smallestdiff = diff;
+							bestpart = p;
+						}
+					}
+				}
+
+				// if a smallestdiff was found for current job
+				if(smallestdiff > -1)
+				{
+					partitions[bestpart][JNUM] = j+1; // set job number for partition
+					joblist[j][JSTAT] = 1; // set job status
+				}
+			}
 		break;
 		
 		default:
