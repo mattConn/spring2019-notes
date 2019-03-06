@@ -1,7 +1,38 @@
 #include <stdio.h>
 
-typedef enum {PSIZE, JNUM} partinfo;
-typedef enum {JSIZE, JSTAT} jobinfo;
+// enums for 2d array indexing
+typedef enum {PSIZE, JNUM} partinfo; // partition info: partition size index, job number index
+typedef enum {JSIZE, JSTAT} jobinfo; // job info: job size index, job status index
+
+/*
+Mem. mgmt algorith testing
+==========================
+
+Jump to one of the following comments to see that specific sequence in the program:
+-----------------------------------------------------------------------------------
+
+choosing algorithm to implement
+
+memory, job and waste var. initialization
+
+testing without getting user input (compile time)
+	OR
+testing with user input
+
+prompt user for partition and job info
+
+Algorithm implementation
+	first-fit algorithm
+	best-fit algorithm
+	next-fit algorithm
+	worst-fit algorithm
+
+display algorithm results
+	display partition sizes
+	display job sizes
+	table of partitions, job and waste, total waste, total waiting jobs
+
+*/
 
 int main()
 {
@@ -68,6 +99,8 @@ int main()
 			partitions[i][j] = 0;
 	}
 
+// testing without getting user input
+// ----------------------------------
 #ifdef NOINTERACT
 	numparts = 4;
 	numjobs = 4;
@@ -84,6 +117,12 @@ int main()
 	joblist[2][JSIZE] = 200;
 	joblist[3][JSIZE] = 300;
 #else
+// testing with user input
+// -----------------------
+
+// prompt user for partition and job info
+// --------------------------------------
+
 	// get partition count
 	do
 	{
@@ -125,8 +164,7 @@ int main()
 	// Algorithm implementation
 	// ========================
 
-	// for next fit algo
-	int lastfit = -1;
+	int lastfit = -1; // for next fit algo
 
 	switch(algo)
 	{
@@ -210,10 +248,46 @@ int main()
 			}
 		break;
 		
+		case 'w':
+			// worst-fit algorithm
+			//--------------------
+			for(int j=0; j < numjobs; j++)
+			{
+				int diff = -1; // diff. bewteen partition size and job size
+				int largestdiff = -1; // largest diff. found
+				int bestpart = -1; // index of partition with largest diff.
+
+				for(int p=0; p < numparts; p++)
+				{
+					// if partition is empty and job can fit in part.
+					if(partitions[p][JNUM] == 0 && joblist[j][JSIZE] <= partitions[p][PSIZE])
+					{
+						diff = partitions[p][PSIZE] - joblist[j][JSIZE];
+
+						// if largestdiff is unitialized or diff is larger than largestdiff
+						if(largestdiff < 0 || diff > largestdiff)
+						{
+							largestdiff = diff;
+							bestpart = p;
+						}
+					}
+				}
+
+				// if a largestdiff was found for current job
+				if(largestdiff > -1)
+				{
+					partitions[bestpart][JNUM] = j+1; // set job number for partition
+					joblist[j][JSTAT] = 1; // set job status
+				}
+			}
+		break;
+
+
 		default:
 			printf("Could not find routine for algorithm specified by `%c`. Exiting.\n", algo);
 			return 1;
 	}
+	// end algorithm implementation
 
 
 	printf("\n");
@@ -238,11 +312,11 @@ int main()
 	printf("\n\n");
 
 	// table of partitions, job and waste, total waste, total waiting jobs
-	//====================================================================
+	//--------------------------------------------------------------------
 	printf("Part | Job/Waste\n");
 	for(int i=0; i<numparts; i++)
 	{
-		int waste = partitions[i][PSIZE] - joblist[ partitions[i][JNUM]-1 ][JSIZE];
+		int waste = partitions[i][PSIZE] - ( partitions[i][JNUM] != 0 ? joblist[ partitions[i][JNUM]-1 ][JSIZE] : 0 );
 		totalwaste += waste;
 
 		printf("P%d | j%d/%d\n", i+1, partitions[i][JNUM],waste); // display partition with part. number
