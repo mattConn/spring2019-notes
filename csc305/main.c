@@ -68,6 +68,18 @@ int main()
 			partitions[i][j] = 0;
 	}
 
+#ifdef NOINTERACT
+	numparts = 2;
+	numjobs = 2;
+
+	partitions[0][PSIZE] = 200;
+	partitions[1][PSIZE] = 100;
+
+	memsize = 300;
+
+	joblist[0][JSIZE] = 50;
+	joblist[1][JSIZE] = 75;
+#else
 	// get partition count
 	do
 	{
@@ -104,6 +116,7 @@ int main()
 		printf("Enter size of job %d: ", i+1);
 		scanf("%d", &joblist[i][JSIZE]);	
 	}
+#endif
 
 	// Algorithm implementation
 	// ========================
@@ -113,17 +126,24 @@ int main()
 		case 'f':
 			// first-fit algorithm
 			//--------------------
-			for(int i=0; i < numjobs; i++)
+			for(int j=0; j < numjobs; j++)
 			{
-				for(int j=0; j < numparts; j++)
+				for(int p=0; p < numparts; p++)
 				{
-					if(partitions[j][JNUM] == 0 && joblist[i][JSIZE] <= partitions[j][PSIZE])
+					// if partition is empty and job can fit in part.
+					if(partitions[p][JNUM] == 0 && joblist[j][JSIZE] <= partitions[p][PSIZE])
 					{
-						partitions[j][JNUM] = i+1;
-						joblist[i][JSTAT] = 1;
+						partitions[p][JNUM] = j+1; // set job number for partition
+						joblist[j][JSTAT] = 1; // set job status
+						break;
 					}
 				}
 			}
+		break;
+
+		case 'b':
+			// best-fit algorithm
+			//--------------------
 		break;
 		
 		default:

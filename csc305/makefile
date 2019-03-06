@@ -1,5 +1,5 @@
 CC = gcc
-FLAGS = 
+FLAGS = -D NOINTERACT
 
 # algorithm binaries
 BIN = mem-mgmt-algorithms
