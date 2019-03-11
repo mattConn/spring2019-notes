@@ -1,14 +1,15 @@
 #pragma once
 
-class point
+class Point
 {
 	int x = 0;
 	int y = 0;
 
 public:
-	point(){};
-	point(const int &X, const int &Y) : x(X), y(Y){};
+	Point(){};
+	Point(const int &X, const int &Y) : x(X), y(Y){};
 
+	// coordinate getters and setters
 	int getX() const { return x; };
 	int getY() const { return y; };
 

@@ -1,10 +1,10 @@
 Problem: Generate a C++ object-oriented project that models the
 following descriptions:
-• A circle “is a” shape.
+• A circle “is a” Shape.
 • A circle “has a” a point (x,y) and a radius.
-• A right triangle “is a” shape.
+• A right triangle “is a” Shape.
 • A right triangle “has” two sides, denoted as side1 and side2.
-• A shape, a circle, or a right triangle “has an” area.
+• A Shape, a circle, or a right triangle “has an” area.
 Requirements:
 1. The “is a” relationship is modeled by public inheritance.
 2. The “has a” relationship is modeled by composition.

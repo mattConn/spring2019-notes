@@ -1,14 +1,12 @@
 #pragma once
 
-class shape
+class Shape
 {
-	double area=calculate_area();
+protected:
+	double area = 0;
 
 public:
-	shape(){};
-	shape(const double &a) : area(a){};
+	Shape(){};
 
-	double calculate_area() const {return (area ? area : 0);};
-
-	double getArea() const {return area;}
+	double calculate_area(){return area;};
 };

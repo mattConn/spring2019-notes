@@ -1,13 +1,13 @@
-shape X
+Shape X
 	gives:
 	double area
 	calculate area
 point X
 	int x, y
-circle : shape X
+circle : Shape X
 	point center
 	double radius
-triangle : shape X
+triangle : Shape X
 	double side1, side2
 	double hyp()
 
