@@ -84,11 +84,13 @@ int main()
 	return 0;
 }
 
+// distance from Circle center to origin
 double distance(const Circle &c) 
 {
 	return sqrt( pow(c.getCenter().getX(), 2) + pow(c.getCenter().getY(), 2) );
 }
 
+// distance from c1 center to c2 center
 double distance(const Circle &c1, const Circle &c2)
 {
 	return sqrt( pow(c2.getCenter().getX() - c1.getCenter().getX(), 2) + pow(c2.getCenter().getY() - c1.getCenter().getY(), 2));
