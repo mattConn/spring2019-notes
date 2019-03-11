@@ -1,0 +1,37 @@
+// CSC 330 Lab 2
+// Matthew Connelly
+
+calling all point methods
+=========================
+p.setX(3)
+p.setY(4)
+p.getX(): 3
+p.getY(): 4
+
+calling all circle methods
+==========================
+c.calculate_area(): 0
+
+c.setRadius(4.5)
+
+c.getRadius(): 4.5
+c.calculate_area(): 63.6173
+c.setCenter(3, 5)
+c.getCenter().getX(): 3
+c.getCenter().getY(): 5
+
+calling all rtriangle methods
+=============================
+rt.setSide1(8.5)
+rt.setSide2(2.3)
+
+rt.getSide1(): 8.5
+rt.getSide2(): 2.3
+
+rt.calculate_area(): 9.775
+rt.hyp(): 8.80568
+
+calling non-member functions:
+=============================
+distance(c): 5.83095
+distance(c, c2): 9.21954
