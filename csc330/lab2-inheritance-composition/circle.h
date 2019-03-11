@@ -16,7 +16,7 @@ public:
 	Circle(const int &X, const int &Y, const double &r) : radius(r) { setCenter(X, Y); }
 
 	// calculate area of circle
-	double calculate_area() {return (area = PI * radius * radius);};
+	double calculate_area() {return PI * radius * radius;};
 
 	// radius setter and getter
 	double getRadius() const {return radius;}

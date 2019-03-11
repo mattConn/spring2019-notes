@@ -2,7 +2,6 @@
 
 class Shape
 {
-protected:
 	double area = 0;
 
 public:
