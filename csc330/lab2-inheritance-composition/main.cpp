@@ -1,3 +1,6 @@
+// CSC 330 Lab 2
+// Matthew Connelly
+
 #include <iostream>
 #include "Shape.h"
 #include "Point.h"
