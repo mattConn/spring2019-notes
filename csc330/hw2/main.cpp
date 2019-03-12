@@ -5,7 +5,6 @@
 #include "Square.h"
 #include "RightTriangle.h"
 
-// test
 #include <iostream>
 using namespace std;
 
@@ -27,7 +26,7 @@ above four objects */
 for(auto s : shapes) s->print();
 
 // Use for loop to display the area of the above four objects
-for(auto s : shapes) s->area();
+for(auto s : shapes) cout << s->area() << endl;
 
 // Use for loop to implement function resize and display the results of it.
 for(auto s : shapes)
