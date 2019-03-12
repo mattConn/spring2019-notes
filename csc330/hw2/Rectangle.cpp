@@ -1,22 +1,36 @@
 // Rectangle.cpp
 // Contains definitions of Rectangle's methods.
 #include "Rectangle.h"
-Rectangle::Rectangle(add parameters and missing code)
+#include <iostream>
+using namespace std;
+Rectangle::Rectangle(const double &w, const double &h, double x, double y) : Shape(x,y)
 {
-// Use the "this->" notation
+	// Use the "this->" notation
+	this->width = w;
+	this->height = h;
 }
-5
 double Rectangle::area()
 {
-return width * height;
+	return width * height;
 }
 double Rectangle::getWidth()
 {
+	return width;
 }
 double Rectangle::getHeight()
 {
-return height;
+	return height;
 }
-void Rectangle::resize(add parameters and missing code)
+void Rectangle::resize(double w, double h)
 {
+	this->width = w;
+	this->height = h;
+}
+
+void Rectangle::print()
+{
+	cout << "w: " << getWidth() << endl;
+	cout << "h: " << getHeight() << endl;
+	cout << "x: " << getPositionX() << endl;
+	cout << "y: " << getPositionY() << endl;
 }

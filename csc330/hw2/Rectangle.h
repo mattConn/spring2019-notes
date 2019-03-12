@@ -7,12 +7,20 @@
 class Rectangle : public Shape
 {
 public:
-Rectangle(add parameters);
+Rectangle(const double &w, const double &h, double x, double y);
 // I've overridden the area() method here, just like I did in Circle.
 virtual double area();
 // override all virtual functions from Shape class
+virtual void print( );
+
+double getWidth();
+double getHeight();
+void resize(double w, double h);
+
 private:
 // ...and two new data members
 double width;
 double height;
 };
+
+#endif

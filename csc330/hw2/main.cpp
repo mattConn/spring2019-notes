@@ -1,7 +1,7 @@
 // main.cpp
 //#include <iostream>
 #include "Circle.h"
-//#include "Rectangle.h"
+#include "Rectangle.h"
 //#include "Square.h"
 //#include "RightTriangle.h"
 
@@ -13,6 +13,7 @@ int main()
 //add your code
 Shape *s[4];
 Circle c(3.0, 2.1, 3.1);
+Rectangle r(2.6, 3.9, 10, 20);
 
 // Use the pointers to create objects of class Circle, Rectangle, Square and
 // RightTriangle

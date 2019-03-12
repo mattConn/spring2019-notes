@@ -2,29 +2,29 @@
 // Contains the definition of the methods in RightTriangle.
 #include <cmath>
 #include "RightTriangle.h"
-RightTriangle::RightTriangle(add parameters and missing code)
+RightTriangle::RightTriangle(double positionX, double positionY, double width, double height) : Shape(positionX, positionY)
 {
+	this->width = width;
+	this->height = width;
 }
 double RightTriangle::area()
 {
-return width * height / 2;
+	return width * height / 2;
 }
 double RightTriangle::getWidth()
 {
-return width;
+	return width;
 }
 double RightTriangle::getHeight()
 {
-//add your code
+	return height;
 }
 double RightTriangle::getHypotenuseLength()
 {
-//add your code
+	return sqrt( width**width + height**height  );
 }
-void RightTriangle::resize(add parameters and missing code)
+void RightTriangle::resize(double width, double height)
 {
-//add your code
-7
+	this->width = width;
+	this->height = width;
 }
-Design class Square as derived class of Shape. Use public inheritance. (See class
-Rectangle)

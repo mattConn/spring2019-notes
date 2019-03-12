@@ -7,14 +7,13 @@
 class RightTriangle : public Shape
 {
 public:
-RightTriangle(double positionX, double positionY, double width, double height);
-virtual double area();
-virtual double getWidth();
-virtual double getHeight();
-double getHypotenuseLength();
-virtual void resize(double width, double height);
+	RightTriangle(double positionX, double positionY, double width, double height);
+	virtual double area();
+	virtual double getWidth();
+	virtual double getHeight();
+	double getHypotenuseLength();
+	virtual void resize(double width, double height);
 private:
-6
-double width;
-double height;
+	double width;
+	double height;
 };
