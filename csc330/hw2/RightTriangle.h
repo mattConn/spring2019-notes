@@ -9,6 +9,7 @@ class RightTriangle : public Shape
 public:
 	RightTriangle(double positionX, double positionY, double width, double height);
 	virtual double area();
+	virtual void print();
 	virtual double getWidth();
 	virtual double getHeight();
 	double getHypotenuseLength();

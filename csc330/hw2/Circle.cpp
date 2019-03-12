@@ -17,14 +17,16 @@ double Circle::getRadius()
 {
     return radius;
 }
-void Circle::resize(double &r, double &multiplier)
+void Circle::resize(double r, double multiplier)
 {
-    radius = r*multiplier;
+    //this->radius = r*multiplier;
+    this->radius = r * multiplier;
 }
 // override all virtual functions from Shape class
 void Circle::print()
 {
-	cout << "r: " << getRadius() << endl;
+	cout << "Circle: " << endl;
+	cout << "r: " << radius << endl;
 	cout << "x: " << getPositionX() << endl;
 	cout << "y: " << getPositionY() << endl;
 }

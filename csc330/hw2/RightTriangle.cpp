@@ -1,7 +1,11 @@
 // RightTriangle.cpp
 // Contains the definition of the methods in RightTriangle.
 #include <cmath>
+#include <iostream>
 #include "RightTriangle.h"
+
+using namespace std;
+
 RightTriangle::RightTriangle(double positionX, double positionY, double width, double height) : Shape(positionX, positionY)
 {
 	this->width = width;
@@ -26,5 +30,15 @@ double RightTriangle::getHypotenuseLength()
 void RightTriangle::resize(double width, double height)
 {
 	this->width = width;
-	this->height = width;
+	this->height = height;
+}
+
+
+void RightTriangle::print()
+{
+	cout << "RightTriangle: " << endl;
+	cout << "w: " << width << endl;
+	cout << "h: " << height << endl;
+	cout << "x: " << getPositionX() << endl;
+	cout << "y: " << getPositionY() << endl;
 }
