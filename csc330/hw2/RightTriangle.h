@@ -17,3 +17,5 @@ private:
 	double width;
 	double height;
 };
+
+#endif

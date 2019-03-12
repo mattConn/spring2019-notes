@@ -21,7 +21,7 @@ double RightTriangle::getHeight()
 }
 double RightTriangle::getHypotenuseLength()
 {
-	return sqrt( width**width + height**height  );
+	return sqrt( width*width + height*height  );
 }
 void RightTriangle::resize(double width, double height)
 {

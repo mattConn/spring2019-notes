@@ -29,8 +29,8 @@ void Rectangle::resize(double w, double h)
 
 void Rectangle::print()
 {
-	cout << "w: " << getWidth() << endl;
-	cout << "h: " << getHeight() << endl;
+	cout << "w: " << width << endl;
+	cout << "h: " << height << endl;
 	cout << "x: " << getPositionX() << endl;
 	cout << "y: " << getPositionY() << endl;
 }
