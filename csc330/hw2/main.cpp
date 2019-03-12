@@ -23,12 +23,24 @@ shapes[++i] = new RightTriangle(3,2,44.2,61);
 
 /* Use for loop to display the values stored in private data members of the
 above four objects */
+cout << "Shapes private members: " << endl;
+cout << "======================= " << endl;
+
 for(auto s : shapes) s->print();
 
+cout << endl;
+
 // Use for loop to display the area of the above four objects
+cout << "Areas:" << endl;
+cout << "======" << endl;
+
 for(auto s : shapes) cout << s->area() << endl;
 
+cout << endl;
+
 // Use for loop to implement function resize and display the results of it.
+cout << "Shape resize:" << endl;
+cout << "=============" << endl;
 for(auto s : shapes)
 {
 	s->resize(33,44);
