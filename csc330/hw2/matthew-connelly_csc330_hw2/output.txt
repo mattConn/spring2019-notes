@@ -1,0 +1,54 @@
+// CSC 330 HW 2
+// Matthew Connelly
+
+./HW2
+Shapes private members: 
+======================= 
+Circle: 
+r: 3
+x: 2.1
+y: 3.1
+Rectangle: 
+w: 2.6
+h: 3.9
+x: 10
+y: 20
+Square: 
+w: 5
+h: 5
+x: 13.2
+y: 3.14
+RightTriangle: 
+w: 44.2
+h: 44.2
+x: 3
+y: 2
+
+Areas:
+======
+28.2743
+10.14
+25
+976.82
+
+Shape resize:
+=============
+Circle: 
+r: 1452
+x: 2.1
+y: 3.1
+Rectangle: 
+w: 33
+h: 44
+x: 10
+y: 20
+Square: 
+w: 1452
+h: 1452
+x: 13.2
+y: 3.14
+RightTriangle: 
+w: 33
+h: 44
+x: 3
+y: 2
