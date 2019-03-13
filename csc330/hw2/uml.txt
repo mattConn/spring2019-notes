@@ -1,0 +1,6 @@
+%2F%2F Cool Class Diagram,
+[Shape|positionX:double; positionY:double|getPositionX():double;getPositionY():double;move(double double);getWidth():double;getHeight():double;resize(double double);area():double;print()],
+[Shape]-<>[Circle|radius:double|area():double;getRadius():double;resize(double double);print()],
+[Shape]-<>[Rectangle|width:double;height:double;|area():double;getWidth():double;getHeight():double;resize(double double);print()],
+[Shape]-<>[Square|width:double|area():double; print(); getWidth():double; getHeight():double; resize(double double);],
+[Shape]-<>[RightTriangle|width:double;height:double;|area():double;print();getWidth():double;getHeight():double;getHypotenuseLength():double;resize(double double)]
