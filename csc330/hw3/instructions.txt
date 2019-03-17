@@ -1,0 +1,6 @@
+- alphabetical list of words found with num. of occurence.
+- case should be ignored during search and in output
+- assumptions:
+	- words are separated by whitespace and punctuation.
+	- no hyphenation in input
+	- numbers should be ignored
