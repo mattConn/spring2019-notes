@@ -1,0 +1,41 @@
+// CSC 330 Hw3
+// Matthew Connelly
+
+Reading from `input.txt`:
+
+a	1	and	3	as	2	be	1
+bent	1	both	1	could	2	diverged	1
+down	1	far	1	i	3	in	2
+it	1	long	1	looked	1	not	1
+one	2	roads	1	sorry	1	stood	1
+the	1	to	1	travel	1	traveler	1
+two	1	undergrowth	1	where	1	wood	1
+yellow	1	
+
+Done reading from `input.txt`.
+
+
+Reading from `input2.txt`:
+
+candy	1	child	1	from	1	good	1
+large	1	man	1	of	1	piece	1
+small	2	the	3	took	1	very	2
+
+
+Done reading from `input2.txt`.
+
+
+Reading from `input3.txt`:
+
+about	1	and	2	as	3	because	1
+better	1	claim	1	fair	1	for	1
+grassy	1	had	1	having	1	it	1
+just	1	other	1	passing	1	perhaps	1
+really	1	same	1	that	1	the	4
+them	1	then	1	there	1	though	1
+took	1	wanted	1	was	1	wear	1
+worn	1	
+
+Done reading from `input3.txt`.
+
+
