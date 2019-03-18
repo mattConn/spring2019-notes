@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -7,17 +6,27 @@
 
 using namespace std;
 
+// function to list words and their frequencies in a file
+bool getWordFreq(const string &filename);
+
 int main(int argc, char *argv[])
 {
+	// check for cli args
 	if(argc == 1)
 	{
 		cout << "Missing a filename." << endl;
 		return 1;
 	}
 
-	// get filename from argv
-	string filename = argv[1];
+	// call function on cli args
+	for(int i = 1; i < argc; i++) getWordFreq(argv[i]);
 
+	return 0;
+}
+
+
+bool getWordFreq(const string &filename)
+{
 	// try to open file
 	fstream infile;
 	infile.open(filename);
@@ -25,11 +34,11 @@ int main(int argc, char *argv[])
 	// if file open failure
 	if(!infile.is_open())
 	{
-		cout <<"Could not open file `"<<filename<<"`. Exiting."<< endl;
-		return 1;
+		cout <<"ERROR: Could not open file `"<<filename<<"`."<< endl;
+		return false;
 	}
 
-	cout<<"Reading from `"<<filename<<"`."<<endl;
+	cout<<"Reading from `"<<filename<<"`:\n"<<endl;
 
 	// map of words and counts
 	map<string, int> wordmap;	
@@ -73,13 +82,15 @@ int main(int argc, char *argv[])
 	for(auto word : wordmap)
 	{
 		i++;
-		cout <<word.first<<"\t"<<word.second;
+		cout << word.first<<"\t"<< word.second;
 		i%4 == 0 ? cout << endl : cout << "\t";
 	}
-	cout << endl;
 
+	cout << "\n" << endl;
+	cout<<"Done reading from `"<<filename<<"`."<<endl;
+	cout << "\n" << endl;
 
 	infile.close();
 
-	return 0;
+	return true;
 }
