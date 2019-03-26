@@ -1,0 +1,29 @@
+The lab 3 assignment is to be completed by April 3rd, 11:59 pm.
+Later submission means you won't receive full grade 
+(only 75%, given everything you submit is correct)
+
+There are 3 programs that you should write. 
+Each program implements scheduling algorithm:
+	First Come - First Serve
+	Shortest Job Next
+	Priority
+
+Below is the same as in lab 2:
+
+Please comment you code, so that I can understand 
+your particular choice of actions in solutions. 
+Try to especially comment what each variable in 
+the code means in the comments.
+
+Based on the results, write a small report 
+explaining which algorithm works 
+best for the input data in the test file.
+
+To summarize, you should submit: 
+	3 source code files (preferably)
+	one small report (either pdf or docx) which contains:
+		the results for each algorithm (order of jobs, turnaround time, 
+		etc., see text files for each problem)
+		the explanation for which algorithm works best for the input and why.
+
+Good luck!
