@@ -7,7 +7,11 @@ using namespace std;
 
 // process struct
 struct proc {
+	// set by user
+	int arrivalTime = 0;
 	int execTime = 0;
+
+	// calculated
 	int serviceTime = 0;
 	int turnaroundTime = 0;
 };
@@ -32,17 +36,18 @@ int main()
 
 	for(int i=0; i < numProc; i++)
 	{
+		cout << "Enter arrival time for proc " << i << ": ";
+		cin >> procArr[i].arrivalTime;
+
 		cout << "Enter exec time for proc " << i << ": ";
 		cin >> procArr[i].execTime;
 
 		// calculate service time: sum previous exec times
 		for(int j=0; j<i; j++)
-		{
 			procArr[i].serviceTime += procArr[j].execTime;
-		}
 
 		// calculate turnaround time
-		procArr[i].turnaroundTime = procArr[i].serviceTime - i;
+		procArr[i].turnaroundTime = procArr[i].serviceTime - procArr[i].arrivalTime;
 	}
 
 	// calculate avg. turnaround
