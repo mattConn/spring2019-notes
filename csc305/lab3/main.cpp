@@ -22,6 +22,7 @@ int main()
 {
 	int numProc = 0;
 
+	// get num. of processes
 	while(numProc < 1 || numProc > MAX_PROC)
 	{
 		cout << "Enter num. of processes (from 1-"<<MAX_PROC<<"): ";
@@ -34,6 +35,7 @@ int main()
 	// average turnaround time
 	double avgTurnaroundTime = 0;
 
+	// get arrival times and exec times
 	for(int i=0; i < numProc; i++)
 	{
 		cout << "Enter arrival time for proc " << i << ": ";
@@ -51,13 +53,15 @@ int main()
 	}
 
 	// calculate avg. turnaround
+	// sum
 	for(int i=0; i < numProc; i++)
 		avgTurnaroundTime += procArr[i].turnaroundTime;
 
+	// division
 	avgTurnaroundTime /= numProc;
 
-	cout << "Proc, Arrival T., Exec. T., Service T., Turnaround T." << endl;
 	// display results
+	cout << "Proc, Arrival T., Exec. T., Service T., Turnaround T." << endl;
 	for(int i=0; i < numProc; i++)
 	{
 		proc process = procArr[i];
