@@ -1,0 +1,8 @@
+Priority results:
+
+Proc, Priority, Arrival T., Exec. T., Turnaround T.
+p0      3       0       3       0
+p1      3       0       8       3
+p2      2       0       5       11
+p3      1       0       6       16
+Avg. turnaround time: 7.5
