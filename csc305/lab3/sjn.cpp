@@ -1,4 +1,4 @@
-// first-come first serve scheduling
+// second job next scheduling
 
 #include <iostream>
 #include <cstdio>
@@ -6,7 +6,8 @@
 using namespace std;
 
 // process struct
-struct proc {
+struct proc
+{
 	// set by user
 	int arrivalTime = 0;
 	int execTime = 0;
@@ -23,9 +24,9 @@ int main()
 	int numProc = 0;
 
 	// get num. of processes
-	while(numProc < 1 || numProc > MAX_PROC)
+	while (numProc < 1 || numProc > MAX_PROC)
 	{
-		cout << "Enter num. of processes (from 1-"<<MAX_PROC<<"): ";
+		cout << "Enter num. of processes (from 1-" << MAX_PROC << "): ";
 		cin >> numProc;
 	}
 
@@ -36,7 +37,7 @@ int main()
 	double avgTurnaroundTime = 0;
 
 	// get arrival times and exec times
-	for(int i=0; i < numProc; i++)
+	for (int i = 0; i < numProc; i++)
 	{
 		cout << "Enter arrival time for proc " << i << ": ";
 		cin >> procArr[i].arrivalTime;
@@ -44,8 +45,13 @@ int main()
 		cout << "Enter exec time for proc " << i << ": ";
 		cin >> procArr[i].execTime;
 
+		// sort processes by exec. time
+	}
+
+	for (int i = 0; i < numProc; i++)
+	{
 		// calculate service time: sum previous exec times
-		for(int j=0; j<i; j++)
+		for (int j = 0; j < i; j++)
 			procArr[i].serviceTime += procArr[j].execTime;
 
 		// calculate turnaround time
@@ -54,7 +60,7 @@ int main()
 
 	// calculate avg. turnaround
 	// sum
-	for(int i=0; i < numProc; i++)
+	for (int i = 0; i < numProc; i++)
 		avgTurnaroundTime += procArr[i].turnaroundTime;
 
 	// division
@@ -62,11 +68,11 @@ int main()
 
 	// display results
 	cout << "Proc, Arrival T., Exec. T., Service T., Turnaround T." << endl;
-	for(int i=0; i < numProc; i++)
+	for (int i = 0; i < numProc; i++)
 	{
 		proc process = procArr[i];
 
-		printf("p%d\t%d\t%d\t%d\t%d\n",i,i,process.execTime, process.serviceTime, process.turnaroundTime);
+		printf("p%d\t%d\t%d\t%d\t%d\n", i, i, process.execTime, process.serviceTime, process.turnaroundTime);
 	}
 	cout << "Avg. turnaround time: " << avgTurnaroundTime << endl;
 

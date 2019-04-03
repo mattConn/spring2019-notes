@@ -1,14 +1,19 @@
 CC = clang++ 
 FLAGS = -std=c++11
+COMPILE = $(CC) $(FLAGS) $^ -o bin/$@
 
-# algorithm binaries
-BIN = proc-scheduling
+# fcfs: fcfs.cpp
+# 	$(CC) $(FLAGS) $^ -o bin/$@
 
-$(BIN): main.cpp
-	$(CC) $(FLAGS) $^ -o $@
+# sjn: sjn.cpp
+# 	$(CC) $(FLAGS) $^ -o bin/$@
+fcfs: fcfs.cpp
+	$(COMPILE)
 
-check:
-	./$(BIN)
+sjn: sjn.cpp
+	$(COMPILE)
+
+all: fcfs sjn
 
 clean:
-	rm $(BIN)
+	rm bin/*
