@@ -1,4 +1,4 @@
-// shortest job next scheduling
+// priority scheduling
 
 #include <iostream>
 #include <cstdio>
