@@ -13,7 +13,10 @@ fcfs: fcfs.cpp
 sjn: sjn.cpp
 	$(COMPILE)
 
-all: fcfs sjn
+priority: priority.cpp
+	$(COMPILE)
+
+all: fcfs sjn priority
 
 clean:
 	rm bin/*
