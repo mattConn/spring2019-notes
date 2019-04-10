@@ -81,4 +81,123 @@ endmodule
 ```
 \newpage
 
+3. The adder-subtractor has the following values for mode input M and data inputs A and B:
 
+|  | M | A | B |
+| - | - | - | - |
+| (a) | 0 | 1100 | 1000 |
+| (b) | 1 | 0111 | 0110 |
+| (c) | 1 | 0000 | 0001 |
+| (d) | 0 | 0101 | 1010 |
+
+In each case, determine the values of the SUM outputs, the carry C, and overflow V. 
+
+(a)
+
+	```
+	M = 0
+
+	1100
+	1000 +
+	----
+	0100
+
+	C = 1
+	V = 1
+	```
+
+(b)
+	```
+	M = 1
+
+	0111
+	0110 -
+
+	<2's complement>
+
+	0111
+	1010 +
+	----
+	0001
+
+	C = 1
+	V = 0
+	```
+
+(c)
+	```
+	M = 1
+
+	0000
+	0001 -
+
+	<2's complement>
+
+	0000
+	1111 +
+	----
+	1111
+
+	C = 0
+	V = 0
+	```
+
+(d)
+	```
+	M = 0
+
+	0101
+	1010 +
+	----
+	1111
+
+	C = 0
+	V = 0
+	```
+
+\newpage
+
+4. Assume that the exclusive-OR gate has a propagation delay of 15ns and that the AND and
+OR gates have a propagation delay of 10 ns. (a) What is the propagation delay time of
+following 1-bit full adder? (b) what is the total propagation delay time of a 4-bit ripple carry
+adder built using the 1-bit full adder? (c) what is the total propagation delay time of a 4 bit
+carry lookahead adder? 
+
+(a) 15 + 15 = 30ns (15ns per level)
+(b) 30*4 = 120ns (30ns per FA)
+(c) 30ns
+
+5. Use Boolean theorems or K-maps to obtain the simplified Boolean expressions for outputs F
+and G in terms of the input variables in the following circuit.
+
+![](hw4-prob5.png)
+
+**Simplifying F**
+```
+[ A'(DA')' ]'(BC + A') = F
+BCA + DA'BC + DA'
+BCA + A'(DBC + D) 
+BCA + A'[ D(BC + 1) ]
+BCA + A'D 
+
+<Simplified>
+BCA + A'D = F
+```
+
+**Simplifying G**
+```
+(DA')'(BC + A') = G
+
+(D' + A)(BC + A')
+
+<As sum of minterms>
+ABCD' + A'BCD' + A'B'CD' + A'BC'D' + A'B'C'D' + ABCD
+```
+| AB\\CD | 00 | 01 | 11 | 10 |
+| - | - | - | - | - |
+| 00 | 1 | 0 | 0 | 1 |
+| 01 | 1 | 0 | 0 | 1 |
+| 11 | 0 | 0 | 1 | 1 |
+| 10 | 0 | 0 | 0 | 0 |
+
+$\Rightarrow$ `A'D' + BCD' + ABC`
