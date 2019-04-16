@@ -201,3 +201,5 @@ ABCD' + A'BCD' + A'B'CD' + A'BC'D' + A'B'C'D' + ABCD
 | 10 | 0 | 0 | 0 | 0 |
 
 $\Rightarrow$ `A'D' + BCD' + ABC`
+
+
