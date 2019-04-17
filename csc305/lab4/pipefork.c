@@ -29,7 +29,7 @@ int main()
         printf("Child received: %s\n", inbox);
 
         // write to child's pipe
-        write(fdc[1], msgc, strlen(msgp)+1);
+        write(fdc[1], msgc, strlen(msgc)+1);
         close(fdc[1]); // close write end
     }
     else
@@ -51,7 +51,7 @@ int main()
         // print received msg
         printf("Parent received: %s\n", inbox);
 
-        return 0 ;
+        return 0;
     }
 
     return 0;
