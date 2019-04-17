@@ -41,8 +41,6 @@ int main()
         write(fdp[1], msgp, strlen(msgp)+1);
         close(fdp[1]); // close write end
 
-        // wait for child's message
-        wait(NULL);
 
         // read from child's pipe
         read(fdc[0], inbox, MAX_LEN);
