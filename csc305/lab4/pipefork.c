@@ -1,36 +1,57 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/wait.h> 
 #define MAX_LEN 100
 
 int main()
 {
-    int fd[2]; // pipe ends: 0 read, 1 write
-    pipe(fd);
+    // pipe ends: 0 read, 1 write
+    int fdp[2]; // parent's pipe
+    int fdc[2]; // child's pipe
 
-    char *msg = "Important message"; // message to send
+    pipe(fdp);
+    pipe(fdc);
 
-    // child proc: read from pipe
+    char *msgp = "Message from Parent"; // parent's message
+    char *msgc = "Message from Child"; // child's message
+
+    // child proc
     if(!fork()) // successful fork, falsy
     {
-        printf("Child proc.\n");
-
         char inbox[MAX_LEN]; // storage of message
 
-        close(fd[1]);
-        read(fd[0], inbox, MAX_LEN);
-        close(fd[0]);
+        // read from parent's pipe
+        read(fdp[0], inbox, MAX_LEN);
+        close(fdp[0]); // close read
 
-        printf("\t%s\n", inbox);
+        // print received msg
+        printf("Child received: %s\n", inbox);
+
+        // write to child's pipe
+        write(fdc[1], msgc, strlen(msgp)+1);
+        close(fdc[1]); // close write end
     }
     else
     {
-    // parent proc: write to pipe
-        printf("Parent proc.\n");
-        close(fd[0]); // close read end
-        write(fd[1], msg, strlen(msg)+1);
-        printf("%d\n",fd[1]);
-        close(fd[1]); // close write end
+    // parent proc
+        char inbox[MAX_LEN]; // storage of message
+
+        // write message to parent's pipe 
+        write(fdp[1], msgp, strlen(msgp)+1);
+        close(fdp[1]); // close write end
+
+        // wait for child's message
+        wait(NULL);
+
+        // read from child's pipe
+        read(fdc[0], inbox, MAX_LEN);
+        close(fdc[0]); // close read
+
+        // print received msg
+        printf("Parent received: %s\n", inbox);
+
+        return 0 ;
     }
 
     return 0;
