@@ -1,0 +1,93 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    17:11:24 04/16/2019 
+// Design Name: 
+// Module Name:    BCDAdder 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module BinaryAdder (Sum, Cout, A, B, Cin);
+	input [3:0] A, B;
+	input Cin;
+	output [3:0] Sum;
+	output Cout;
+
+	assign {Cout, Sum} = A + B + Cin;
+endmodule
+
+module BCDAdder(S, C, A, B, Cin, C4, seg, an, dp);
+	input [3:0] A, B;           // two inputs
+	input  Cin;                     // carry in  
+	output  [3:0] S;             // sum
+	output  C, C4;               // C indicates if binary sum is > 9. C4 is the carry out of the bottom adder
+	output [0:6] seg;          // segments a, b, c, d, e, f , g     
+	output [3:0] an;           // anode to enable display    
+	output dp;                    // decimal point      
+
+	wire K;                    // K is the carry output of the top adder
+	wire [3:0] Z, X;       //  X is the left input of the bottom adder, i.e, 0000 or 0110. Z is the 
+                                //  right input of the bottom adder
+                         
+   // calculate the output Carry C based on the circuit for detecting if Z > 9
+	assign C = K | (Z[3] & Z[2]) | (Z[3] & Z[1]);
+	
+   // fill in X using C : X = 0000 or 0110
+	assign X[0] = 0;
+	assign X[3] = 0;
+	assign X[1] = C;
+	assign X[2] = C;
+
+                          // call BinaryAdder (set Cin=0 for the bottom 4-bit adder) twice and 	 
+	BinaryAdder U1(Z,K,A,B,Cin);
+	BinaryAdder U2(S,C4,Z,X,0);
+	bin7seg U3(S, seg, an, dp);
+endmodule       
+
+
+module bin7seg(S, seg, an, dp);
+
+	input [3:0] S;
+	output [0:6] seg;
+	output [3:0] an;
+	output dp;
+
+	reg [0:6] seg;
+	
+	assign an = 4'b1110;
+	
+	
+	always @(S)
+		case(S)
+			0: seg = 7'b0000001;
+			1: seg = 7'b1001111;
+			2: seg = 7'b0010010;
+			3: seg = 7'b0000110;
+			4: seg = 7'b1001100;
+			5: seg = 7'b0100100;
+			6: seg = 7'b0100000;
+			7: seg = 7'b0001111;
+			8: seg = 7'b0000000;
+			9: seg = 7'b0001100;
+			10: seg = 7'b0001000;
+			11: seg = 7'b1100000;
+			12: seg = 7'b0110000;
+			13: seg = 7'b1000010;
+			14: seg = 7'b0110000;
+			15: seg = 7'b0111000;
+
+	endcase
+
+endmodule
+
