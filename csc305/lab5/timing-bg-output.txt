@@ -1,0 +1,21 @@
+Matthews-MacBook-Pro:lab5 matthew$ ./timing-bg.sh 
+Runnin lab5 program for 10s in background
+Runnin lab5 program for 15s in background
+Runnin lab5 program for 20s in background
+Runnin lab5 program for 30s in background
+Matthews-MacBook-Pro:lab5 matthew$ 
+real	0m10.176s
+user	0m9.965s
+sys	0m0.014s
+
+real	0m15.176s
+user	0m14.918s
+sys	0m0.021s
+
+real	0m20.174s
+user	0m19.902s
+sys	0m0.027s
+
+real	0m30.173s
+user	0m29.874s
+sys	0m0.033s

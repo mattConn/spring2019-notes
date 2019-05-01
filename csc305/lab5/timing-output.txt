@@ -1,0 +1,20 @@
+Runnin lab5 program for 10s
+
+real	0m10.169s
+user	0m10.113s
+sys	0m0.033s
+Runnin lab5 program for 15s
+
+real	0m16.000s
+user	0m15.983s
+sys	0m0.010s
+Runnin lab5 program for 20s
+
+real	0m21.000s
+user	0m20.931s
+sys	0m0.038s
+Runnin lab5 program for 30s
+
+real	0m31.000s
+user	0m30.925s
+sys	0m0.042s
